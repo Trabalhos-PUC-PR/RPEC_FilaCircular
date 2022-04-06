@@ -1,6 +1,6 @@
-package programFC;
+package program;
 
-import entitiesFC.FilaCircular;
+import entities.FilaCircular;
 
 public class Main{
 	
@@ -34,5 +34,5 @@ public class Main{
             f.insert(9);
             f.print();
             }
-    
+
 }

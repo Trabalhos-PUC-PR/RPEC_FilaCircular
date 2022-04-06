@@ -1,7 +1,7 @@
-package entitiesFC;
+package entities;
 
 public class FilaCircular {
-    
+   
     private int firstElementPosition;
     private int size;
     private int quantityOfElements;
@@ -40,8 +40,11 @@ public class FilaCircular {
 
     public void print() {
         System.out.print('[');
-        for(int a : data) {
-            System.out.print(a + ", ");
+        for(int i = 0; i < size; i++) {
+            System.out.print(data[i]);
+            if(i+1 != size) {
+            	System.out.print(", ");
+            }
         }
         System.out.println(']');
     }
