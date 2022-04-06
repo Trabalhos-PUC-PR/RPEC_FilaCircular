@@ -1,4 +1,4 @@
-package src.entities;
+package entitiesFC;
 
 public class FilaCircular {
     
@@ -15,18 +15,18 @@ public class FilaCircular {
     }
         
     public boolean isEmpty() {
-        return (quantityOfElements == 0);
+    	return (quantityOfElements - firstElementPosition == 0);
     }
     
     public boolean isFull() {
-    	return (quantityOfElements == size);
+    	return (quantityOfElements - firstElementPosition == size);
     }
     
     public void insert(int i) {
         if(isFull()) {
             throw new RuntimeException("List is full");
         }
-        data[quantityOfElements] = i;
+        data[quantityOfElements % size] = i;
         quantityOfElements++;
     }
 
@@ -34,6 +34,8 @@ public class FilaCircular {
     	if(isEmpty()){
             throw new RuntimeException("List is Empty");
     	}
+    	data[firstElementPosition%size] = 0;
+    	firstElementPosition++;
     }
 
     public void print() {
@@ -43,4 +45,16 @@ public class FilaCircular {
         }
         System.out.println(']');
     }
+
+	public void printState() {
+		System.out.println();
+		
+		print();
+		System.out.printf("FirstElement %d, value: %d\n", firstElementPosition, data[firstElementPosition%size]);
+		System.out.printf("Quantity(last) %d, value: %d\n", quantityOfElements, data[quantityOfElements%size]);
+		System.out.println("isFull? "+isFull());
+		System.out.println("isEmpty? "+isEmpty());
+		
+		System.out.println();
+	}
 }
